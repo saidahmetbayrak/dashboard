@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "A+NcSpj/DXw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\said.bayrak\\Desktop\\dashboard\\Dashboard.Models\\Dashboard.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\said.bayrak\\.nuget\\packages\\elastic.clients.elasticsearch\\9.0.7\\elastic.clients.elasticsearch.9.0.7.nupkg.sha512",
+    "C:\\Users\\said.bayrak\\.nuget\\packages\\elastic.transport\\0.9.2\\elastic.transport.0.9.2.nupkg.sha512",
+    "C:\\Users\\said.bayrak\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://artifact.basbug.com.tr/repository/bis-nuget/index.json.",
+      "projectPath": "C:\\Users\\said.bayrak\\Desktop\\dashboard\\Dashboard.Models\\Dashboard.Models.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\said.bayrak\\Desktop\\dashboard\\Dashboard.Models\\Dashboard.Models.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
