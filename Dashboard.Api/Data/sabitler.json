@@ -1,0 +1,484 @@
+{
+  "ililce": [
+    {
+      "IlceKodu": 1101,
+      "IlceAdi": "ABANA",
+      "IlKodu": 37,
+      "IlAdi": "KASTAMONU"
+    },
+    {
+      "IlceKodu": 1102,
+      "IlceAdi": "ACIPAYAM",
+      "IlKodu": 20,
+      "IlAdi": "DENİZLİ"
+    },
+    {
+      "IlceKodu": 1103,
+      "IlceAdi": "ADALAR",
+      "IlKodu": 34,
+      "IlAdi": "İSTANBUL"
+    },
+    {
+      "IlceKodu": 1104,
+      "IlceAdi": "SEYHAN",
+      "IlKodu": 1,
+      "IlAdi": "ADANA"
+    },
+    {
+      "IlceKodu": 1105,
+      "IlceAdi": "ADIYAMAN MERKEZ",
+      "IlKodu": 2,
+      "IlAdi": "ADIYAMAN"
+    },
+    {
+      "IlceKodu": 1137,
+      "IlceAdi": "ANKARA",
+      "IlKodu": 6,
+      "IlAdi": "ANKARA"
+    },
+    {
+      "IlceKodu": 1138,
+      "IlceAdi": "ANTALYA MERKEZ",
+      "IlKodu": 7,
+      "IlAdi": "ANTALYA"
+    },
+    {
+      "IlceKodu": 1159,
+      "IlceAdi": "AYDIN MERKEZ",
+      "IlKodu": 9,
+      "IlAdi": "AYDIN"
+    },
+    {
+      "IlceKodu": 1168,
+      "IlceAdi": "BALIKESİR MERKEZ",
+      "IlKodu": 10,
+      "IlAdi": "BALIKESİR"
+    },
+    {
+      "IlceKodu": 1192,
+      "IlceAdi": "BILECİK MERKEZ",
+      "IlKodu": 11,
+      "IlAdi": "BILECİK"
+    },
+    {
+      "IlceKodu": 1193,
+      "IlceAdi": "BİNGÖL MERKEZ",
+      "IlKodu": 12,
+      "IlAdi": "BİNGÖL"
+    },
+    {
+      "IlceKodu": 1196,
+      "IlceAdi": "BİTLİS MERKEZ",
+      "IlKodu": 13,
+      "IlAdi": "BİTLİS"
+    },
+    {
+      "IlceKodu": 1199,
+      "IlceAdi": "BOLU MERKEZ",
+      "IlKodu": 14,
+      "IlAdi": "BOLU"
+    },
+    {
+      "IlceKodu": 1215,
+      "IlceAdi": "BURDUR MERKEZ",
+      "IlKodu": 15,
+      "IlAdi": "BURDUR"
+    },
+    {
+      "IlceKodu": 1217,
+      "IlceAdi": "BURSA MERKEZ",
+      "IlKodu": 16,
+      "IlAdi": "BURSA"
+    },
+    {
+      "IlceKodu": 1230,
+      "IlceAdi": "ÇANAKKALE MERKEZ",
+      "IlKodu": 17,
+      "IlAdi": "ÇANAKKALE"
+    },
+    {
+      "IlceKodu": 1232,
+      "IlceAdi": "ÇANKIRI MERKEZ",
+      "IlKodu": 18,
+      "IlAdi": "ÇANKIRI"
+    },
+    {
+      "IlceKodu": 1259,
+      "IlceAdi": "ÇORUM MERKEZ",
+      "IlKodu": 19,
+      "IlAdi": "ÇORUM"
+    },
+    {
+      "IlceKodu": 1271,
+      "IlceAdi": "DENİZLİ MERKEZ",
+      "IlKodu": 20,
+      "IlAdi": "DENİZLİ"
+    },
+    {
+      "IlceKodu": 1284,
+      "IlceAdi": "DİYARBAKIR MERKEZ",
+      "IlKodu": 21,
+      "IlAdi": "DİYARBAKIR"
+    },
+    {
+      "IlceKodu": 1295,
+      "IlceAdi": "EDİRNE MERKEZ",
+      "IlKodu": 22,
+      "IlAdi": "EDİRNE"
+    },
+    {
+      "IlceKodu": 1298,
+      "IlceAdi": "ELAZIĞ MERKEZ",
+      "IlKodu": 23,
+      "IlAdi": "ELAZIĞ"
+    },
+    {
+      "IlceKodu": 1318,
+      "IlceAdi": "ERZİNCAN MERKEZ",
+      "IlKodu": 24,
+      "IlAdi": "ERZİNCAN"
+    },
+    {
+      "IlceKodu": 1319,
+      "IlceAdi": "ERZURUM MERKEZ",
+      "IlKodu": 25,
+      "IlAdi": "ERZURUM"
+    },
+    {
+      "IlceKodu": 1322,
+      "IlceAdi": "ESKİŞEHİR MERKEZ",
+      "IlKodu": 26,
+      "IlAdi": "ESKİŞEHİR"
+    },
+    {
+      "IlceKodu": 1335,
+      "IlceAdi": "GAZİANTEP MERKEZ",
+      "IlKodu": 27,
+      "IlAdi": "GAZİANTEP"
+    },
+    {
+      "IlceKodu": 1352,
+      "IlceAdi": "GİRESUN MERKEZ",
+      "IlKodu": 28,
+      "IlAdi": "GİRESUN"
+    },
+    {
+      "IlceKodu": 1369,
+      "IlceAdi": "GÜMÜŞHANE MERKEZ",
+      "IlKodu": 29,
+      "IlAdi": "GÜMÜŞHANE"
+    },
+    {
+      "IlceKodu": 1377,
+      "IlceAdi": "HAKKARİ MERKEZ",
+      "IlKodu": 30,
+      "IlAdi": "HAKKARİ"
+    },
+    {
+      "IlceKodu": 1383,
+      "IlceAdi": "HATAY MERKEZ",
+      "IlKodu": 31,
+      "IlAdi": "HATAY"
+    },
+    {
+      "IlceKodu": 1401,
+      "IlceAdi": "ISPARTA MERKEZ",
+      "IlKodu": 32,
+      "IlAdi": "ISPARTA"
+    },
+    {
+      "IlceKodu": 1402,
+      "IlceAdi": "İCEL MERKEZ",
+      "IlKodu": 33,
+      "IlAdi": "MERSİN"
+    },
+    {
+      "IlceKodu": 1417,
+      "IlceAdi": "İSTANBUL MERKEZ",
+      "IlKodu": 34,
+      "IlAdi": "İSTANBUL"
+    },
+    {
+      "IlceKodu": 1419,
+      "IlceAdi": "İZMİR MERKEZ",
+      "IlKodu": 35,
+      "IlAdi": "İZMİR"
+    },
+    {
+      "IlceKodu": 1447,
+      "IlceAdi": "KARS MERKEZ",
+      "IlKodu": 36,
+      "IlAdi": "KARS"
+    },
+    {
+      "IlceKodu": 1450,
+      "IlceAdi": "KASTAMONU MERKEZ",
+      "IlKodu": 37,
+      "IlAdi": "KASTAMONU"
+    },
+    {
+      "IlceKodu": 1454,
+      "IlceAdi": "KAYSERİ MERKEZ",
+      "IlKodu": 38,
+      "IlAdi": "KAYSERİ"
+    },
+    {
+      "IlceKodu": 1471,
+      "IlceAdi": "KIRKLARELİ MERKEZ",
+      "IlKodu": 39,
+      "IlAdi": "KIRKLARELİ"
+    },
+    {
+      "IlceKodu": 1472,
+      "IlceAdi": "KIRŞEHİR MERKEZ",
+      "IlKodu": 40,
+      "IlAdi": "KIRŞEHİR"
+    },
+    {
+      "IlceKodu": 1478,
+      "IlceAdi": "KOCAELİ MERKEZ (İZMİT)",
+      "IlKodu": 41,
+      "IlAdi": "KOCAELİ"
+    },
+    {
+      "IlceKodu": 1481,
+      "IlceAdi": "KONYA MERKEZ",
+      "IlKodu": 42,
+      "IlAdi": "KONYA"
+    },
+    {
+      "IlceKodu": 1500,
+      "IlceAdi": "KÜTAHYA MERKEZ",
+      "IlKodu": 43,
+      "IlAdi": "KÜTAHYA"
+    },
+    {
+      "IlceKodu": 1509,
+      "IlceAdi": "MALATYA MERKEZ",
+      "IlKodu": 44,
+      "IlAdi": "MALATYA"
+    },
+    {
+      "IlceKodu": 1513,
+      "IlceAdi": "MANİSA MERKEZ",
+      "IlKodu": 45,
+      "IlAdi": "MANİSA"
+    },
+    {
+      "IlceKodu": 1515,
+      "IlceAdi": "KAHRAMANMARAŞ MERKEZ",
+      "IlKodu": 46,
+      "IlAdi": "KAHRAMANMARAŞ"
+    },
+    {
+      "IlceKodu": 1516,
+      "IlceAdi": "MARDİN MERKEZ",
+      "IlKodu": 47,
+      "IlAdi": "MARDİN"
+    },
+    {
+      "IlceKodu": 1532,
+      "IlceAdi": "MUĞLA MERKEZ",
+      "IlKodu": 48,
+      "IlAdi": "MUĞLA"
+    },
+    {
+      "IlceKodu": 1534,
+      "IlceAdi": "MUŞ MERKEZ",
+      "IlKodu": 49,
+      "IlAdi": "MUŞ"
+    },
+    {
+      "IlceKodu": 1543,
+      "IlceAdi": "NEVŞEHİR MERKEZ",
+      "IlKodu": 50,
+      "IlAdi": "NEVŞEHİR"
+    },
+    {
+      "IlceKodu": 1544,
+      "IlceAdi": "NİĞDE MERKEZ",
+      "IlKodu": 51,
+      "IlAdi": "NİĞDE"
+    },
+    {
+      "IlceKodu": 1552,
+      "IlceAdi": "ORDU MERKEZ",
+      "IlKodu": 52,
+      "IlAdi": "ORDU"
+    },
+    {
+      "IlceKodu": 1586,
+      "IlceAdi": "RİZE MERKEZ",
+      "IlKodu": 53,
+      "IlAdi": "RİZE"
+    },
+    {
+      "IlceKodu": 1589,
+      "IlceAdi": "SAKARYA MERKEZ (ADAPAZARI)",
+      "IlKodu": 54,
+      "IlAdi": "SAKARYA"
+    },
+    {
+      "IlceKodu": 1593,
+      "IlceAdi": "SAMSUN MERKEZ",
+      "IlKodu": 55,
+      "IlAdi": "SAMSUN"
+    },
+    {
+      "IlceKodu": 1620,
+      "IlceAdi": "SİİRT MERKEZ",
+      "IlKodu": 56,
+      "IlAdi": "SİİRT"
+    },
+    {
+      "IlceKodu": 1627,
+      "IlceAdi": "SİNOP MERKEZ",
+      "IlKodu": 57,
+      "IlAdi": "SİNOP"
+    },
+    {
+      "IlceKodu": 1628,
+      "IlceAdi": "SİVAS MERKEZ",
+      "IlKodu": 58,
+      "IlAdi": "SİVAS"
+    },
+    {
+      "IlceKodu": 1673,
+      "IlceAdi": "TEKİRDAĞ MERKEZ",
+      "IlKodu": 59,
+      "IlAdi": "TEKİRDAĞ"
+    },
+    {
+      "IlceKodu": 1679,
+      "IlceAdi": "TOKAT MERKEZ",
+      "IlKodu": 60,
+      "IlAdi": "TOKAT"
+    },
+    {
+      "IlceKodu": 1686,
+      "IlceAdi": "TRABZON MERKEZ",
+      "IlKodu": 61,
+      "IlAdi": "TRABZON"
+    },
+    {
+      "IlceKodu": 1688,
+      "IlceAdi": "TUNCELİ MERKEZ",
+      "IlKodu": 62,
+      "IlAdi": "TUNCELİ"
+    },
+    {
+      "IlceKodu": 1702,
+      "IlceAdi": "ŞANLIURFA MERKEZ",
+      "IlKodu": 63,
+      "IlAdi": "ŞANLIURFA"
+    },
+    {
+      "IlceKodu": 1704,
+      "IlceAdi": "UŞAK MERKEZ",
+      "IlKodu": 64,
+      "IlAdi": "UŞAK"
+    },
+    {
+      "IlceKodu": 1710,
+      "IlceAdi": "VAN MERKEZ",
+      "IlKodu": 65,
+      "IlAdi": "VAN"
+    },
+    {
+      "IlceKodu": 1733,
+      "IlceAdi": "YOZGAT MERKEZ",
+      "IlKodu": 66,
+      "IlAdi": "YOZGAT"
+    },
+    {
+      "IlceKodu": 1741,
+      "IlceAdi": "ZONGULDAK MERKEZ",
+      "IlKodu": 67,
+      "IlAdi": "ZONGULDAK"
+    },
+    {
+      "IlceKodu": 1120,
+      "IlceAdi": "AKSARAY MERKEZ",
+      "IlKodu": 68,
+      "IlAdi": "AKSARAY"
+    },
+    {
+      "IlceKodu": 1176,
+      "IlceAdi": "BAYBURT MERKEZ",
+      "IlKodu": 69,
+      "IlAdi": "BAYBURT"
+    },
+    {
+      "IlceKodu": 1439,
+      "IlceAdi": "KARAMAN MERKEZ",
+      "IlKodu": 70,
+      "IlAdi": "KARAMAN"
+    },
+    {
+      "IlceKodu": 1469,
+      "IlceAdi": "KIRIKKALE MERKEZ",
+      "IlKodu": 71,
+      "IlAdi": "KIRIKKALE"
+    },
+    {
+      "IlceKodu": 1174,
+      "IlceAdi": "BATMAN MERKEZ",
+      "IlKodu": 72,
+      "IlAdi": "BATMAN"
+    },
+    {
+      "IlceKodu": 1661,
+      "IlceAdi": "ŞIRNAK MERKEZ",
+      "IlKodu": 73,
+      "IlAdi": "ŞIRNAK"
+    },
+    {
+      "IlceKodu": 1172,
+      "IlceAdi": "BARTIN MERKEZ",
+      "IlKodu": 74,
+      "IlAdi": "BARTIN"
+    },
+    {
+      "IlceKodu": 1144,
+      "IlceAdi": "ARDAHAN MERKEZ",
+      "IlKodu": 75,
+      "IlAdi": "ARDAHAN"
+    },
+    {
+      "IlceKodu": 1398,
+      "IlceAdi": "IĞDIR MERKEZ",
+      "IlKodu": 76,
+      "IlAdi": "IĞDIR"
+    },
+    {
+      "IlceKodu": 1716,
+      "IlceAdi": "YALOVA MERKEZ",
+      "IlKodu": 77,
+      "IlAdi": "YALOVA"
+    },
+    {
+      "IlceKodu": 1433,
+      "IlceAdi": "KARABÜK MERKEZ",
+      "IlKodu": 78,
+      "IlAdi": "KARABÜK"
+    },
+    {
+      "IlceKodu": 1476,
+      "IlceAdi": "KILİS MERKEZ",
+      "IlKodu": 79,
+      "IlAdi": "KILİS"
+    },
+    {
+      "IlceKodu": 1560,
+      "IlceAdi": "OSMANİYE MERKEZ",
+      "IlKodu": 80,
+      "IlAdi": "OSMANİYE"
+    },
+    {
+      "IlceKodu": 1292,
+      "IlceAdi": "DÜZCE MERKEZ",
+      "IlKodu": 81,
+      "IlAdi": "DÜZCE"
+    }
+  ]
+}

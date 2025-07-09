@@ -1,0 +1,300 @@
+﻿@{
+    ViewData["Title"] = "Gizlilik Politikası";
+}
+
+<div class="container mt-4">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-shield-alt text-primary me-3" style="font-size: 2rem;"></i>
+                <div>
+                    <h1 class="h2 mb-0">Gizlilik Politikası</h1>
+                    <p class="text-muted mb-0">Son güncelleme: @DateTime.Now.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("tr-TR"))</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-9">
+            <!-- Introduction -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-info-circle me-2"></i>Giriş
+                    </h5>
+                    <p>
+                        Dashboard Analytics olarak, kullanıcılarımızın gizliliğini korumak bizim için en önemli önceliklerden biridir.
+                        Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında bilgi vermektedir.
+                    </p>
+                    <p>
+                        Bu politika, Dashboard Analytics platformunu kullandığınızda geçerlidir. Platform kullanımınız bu politikayı
+                        kabul ettiğiniz anlamına gelir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Data Collection -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-database me-2"></i>Toplanan Veriler
+                    </h5>
+
+                    <h6 class="mt-4">Otomatik Olarak Toplanan Veriler</h6>
+                    <ul>
+                        <li><strong>Sistem Bilgileri:</strong> IP adresi, tarayıcı türü, işletim sistemi</li>
+                        <li><strong>Kullanım Verileri:</strong> Sayfa görüntülemeleri, tıklamalar, oturum süresi</li>
+                        <li><strong>Çerezler:</strong> Oturum yönetimi ve kullanıcı tercihlerini hatırlama</li>
+                        <li><strong>Log Kayıtları:</strong> Hata ayıklama ve performans izleme amaçlı</li>
+                    </ul>
+
+                    <h6 class="mt-4">Kullanıcı Tarafından Sağlanan Veriler</h6>
+                    <ul>
+                        <li><strong>İletişim Bilgileri:</strong> İletişim formları aracılığıyla sağlanan bilgiler</li>
+                        <li><strong>Analiz Verileri:</strong> Dashboard'da görüntülenen iş verileriniz</li>
+                        <li><strong>Kullanıcı Tercihleri:</strong> Filtre ayarları, görünüm tercihleri</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Usage -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-cogs me-2"></i>Verilerin Kullanımı
+                    </h5>
+
+                    <p>Topladığımız veriler aşağıdaki amaçlar için kullanılır:</p>
+                    <ul>
+                        <li>Platform hizmetlerinin sağlanması ve yönetimi</li>
+                        <li>Kullanıcı deneyiminin iyileştirilmesi</li>
+                        <li>Teknik destek sağlanması</li>
+                        <li>Güvenlik ve dolandırıcılık önleme</li>
+                        <li>Performans analizi ve sistem optimizasyonu</li>
+                        <li>Yasal gerekliliklerin karşılanması</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Protection -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-lock me-2"></i>Veri Güvenliği
+                    </h5>
+
+                    <p>Verilerinizin güvenliği için aşağıdaki önlemleri alıyoruz:</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Teknik Güvenlik</h6>
+                            <ul>
+                                <li>SSL/TLS şifreleme</li>
+                                <li>Güvenli veri depolama</li>
+                                <li>Düzenli güvenlik taramaları</li>
+                                <li>Erişim kontrolü ve yetkilendirme</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Organizasyonel Güvenlik</h6>
+                            <ul>
+                                <li>Sınırlı personel erişimi</li>
+                                <li>Gizlilik anlaşmaları</li>
+                                <li>Düzenli güvenlik eğitimleri</li>
+                                <li>Olay müdahale prosedürleri</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookies -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-cookie-bite me-2"></i>Çerezler (Cookies)
+                    </h5>
+
+                    <p>Platform aşağıdaki çerez türlerini kullanır:</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Çerez Türü</th>
+                                    <th>Amaç</th>
+                                    <th>Süre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Zorunlu Çerezler</strong></td>
+                                    <td>Oturum yönetimi, güvenlik</td>
+                                    <td>Oturum süresince</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tercih Çerezleri</strong></td>
+                                    <td>Kullanıcı ayarlarını hatırlama</td>
+                                    <td>30 gün</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Analitik Çerezler</strong></td>
+                                    <td>Performans ve kullanım analizi</td>
+                                    <td>1 yıl</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="mt-3">
+                        <small class="text-muted">
+                            Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz. Ancak zorunlu çerezlerin devre dışı bırakılması
+                            platform işlevselliğini etkileyebilir.
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <!-- User Rights -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-user-shield me-2"></i>Kullanıcı Hakları
+                    </h5>
+
+                    <p>KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><strong>Bilgi Talep Etme:</strong> Verilerinizin işlenip işlenmediğini öğrenme</li>
+                                <li><strong>Erişim Hakkı:</strong> İşlenen verilerinize erişim talep etme</li>
+                                <li><strong>Düzeltme Hakkı:</strong> Yanlış verilerin düzeltilmesini talep etme</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><strong>Silme Hakkı:</strong> Verilerinizin silinmesini talep etme</li>
+                                <li><strong>İtiraz Hakkı:</strong> Veri işlemeye itiraz etme</li>
+                                <li><strong>Taşınabilirlik:</strong> Verilerinizi başka platformlara taşıma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Bu haklarınızı kullanmak için
+                        <a asp-controller="Home" asp-action="Contact" class="alert-link">iletişim sayfamız</a>
+                        üzerinden bizimle iletişime geçebilirsiniz.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-envelope me-2"></i>İletişim
+                    </h5>
+
+                    <p>Gizlilik politikası ile ilgili sorularınız için:</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>E-posta:</strong> <a href="mailto:privacy@dashboard.com">privacy@dashboard.com</a></p>
+                            <p><strong>Telefon:</strong> <a href="tel:+902121234567">+90 (212) 123 45 67</a></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                <strong>Adres:</strong><br>
+                                Dashboard Analytics Ltd.<br>
+                                Teknoloji Mahallesi<br>
+                                İstanbul, Türkiye
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-3">
+            <!-- Quick Navigation -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-list me-2"></i>İçindekiler
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="#" onclick="scrollToSection('introduction')" class="text-decoration-none">Giriş</a></li>
+                        <li><a href="#" onclick="scrollToSection('data-collection')" class="text-decoration-none">Toplanan Veriler</a></li>
+                        <li><a href="#" onclick="scrollToSection('data-usage')" class="text-decoration-none">Verilerin Kullanımı</a></li>
+                        <li><a href="#" onclick="scrollToSection('data-protection')" class="text-decoration-none">Veri Güvenliği</a></li>
+                        <li><a href="#" onclick="scrollToSection('cookies')" class="text-decoration-none">Çerezler</a></li>
+                        <li><a href="#" onclick="scrollToSection('user-rights')" class="text-decoration-none">Kullanıcı Hakları</a></li>
+                        <li><a href="#" onclick="scrollToSection('contact')" class="text-decoration-none">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Last Updated -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-clock me-2"></i>Güncelleme Bilgisi
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <p class="mb-2"><strong>Son Güncelleme:</strong></p>
+                    <p class="text-muted">@DateTime.Now.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("tr-TR"))</p>
+
+                    <p class="mb-2"><strong>Versiyon:</strong></p>
+                    <p class="text-muted">1.0</p>
+
+                    <small class="text-muted">
+                        Bu politika düzenli olarak gözden geçirilir ve gerektiğinde güncellenir.
+                    </small>
+                </div>
+            </div>
+
+            <!-- Related Links -->
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-external-link-alt me-2"></i>İlgili Bağlantılar
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Home" asp-action="Contact" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope me-1"></i>İletişim
+                        </a>
+                        <a href="#" onclick="showComingSoon()" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-file-contract me-1"></i>Kullanım Şartları
+                        </a>
+                        <a href="#" onclick="showComingSoon()" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-cookie-bite me-1"></i>Çerez Politikası
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        // This would scroll to specific sections if we had anchors
+        // For now, just scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showComingSoon() {
+        showToast('Geliştirme Aşamasında', 'Bu sayfa şu anda geliştirme aşamasındadır.', 'info');
+    }
+</script>

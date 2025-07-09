@@ -1,0 +1,282 @@
+﻿@{
+    ViewData["Title"] = "İletişim";
+}
+
+<div class="container mt-4">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-envelope text-primary me-3" style="font-size: 2rem;"></i>
+                <div>
+                    <h1 class="h2 mb-0">İletişim</h1>
+                    <p class="text-muted mb-0">Bizimle iletişime geçin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-paper-plane me-2"></i>Mesaj Gönder
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="contact-name" class="form-label">
+                                    <i class="fas fa-user me-1"></i>Ad Soyad *
+                                </label>
+                                <input type="text" class="form-control" id="contact-name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="contact-email" class="form-label">
+                                    <i class="fas fa-envelope me-1"></i>E-posta Adresi *
+                                </label>
+                                <input type="email" class="form-control" id="contact-email" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="contact-phone" class="form-label">
+                                    <i class="fas fa-phone me-1"></i>Telefon
+                                </label>
+                                <input type="tel" class="form-control" id="contact-phone">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="contact-subject" class="form-label">
+                                    <i class="fas fa-tag me-1"></i>Konu *
+                                </label>
+                                <select class="form-select" id="contact-subject" required>
+                                    <option value="">Konu seçiniz</option>
+                                    <option value="technical">Teknik Destek</option>
+                                    <option value="feature">Özellik Talebi</option>
+                                    <option value="bug">Hata Bildirimi</option>
+                                    <option value="general">Genel Sorular</option>
+                                    <option value="business">İş Geliştirme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">
+                                <i class="fas fa-comment me-1"></i>Mesajınız *
+                            </label>
+                            <textarea class="form-control" id="contact-message" rows="6"
+                                      placeholder="Lütfen mesajınızı detaylı olarak yazınız..." required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="contact-consent" required>
+                                <label class="form-check-label" for="contact-consent">
+                                    <a asp-controller="Home" asp-action="Privacy" target="_blank">Gizlilik politikasını</a>
+                                    okudum ve kabul ediyorum. *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-1"></i>Mesaj Gönder
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary">
+                                <i class="fas fa-undo me-1"></i>Temizle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-lg-4">
+            <!-- Contact Details -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-address-card me-2"></i>İletişim Bilgileri
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Adres</h6>
+                            <p class="text-muted mb-0">
+                                Dashboard Analytics Ltd.<br>
+                                Teknoloji Mahallesi<br>
+                                İstanbul, Türkiye
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="fas fa-phone text-primary me-3 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Telefon</h6>
+                            <p class="text-muted mb-0">
+                                <a href="tel:+902121234567" class="text-decoration-none">
+                                    +90 (212) 123 45 67
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="fas fa-envelope text-primary me-3 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">E-posta</h6>
+                            <p class="text-muted mb-0">
+                                <a href="mailto:info@dashboard.com" class="text-decoration-none">
+                                    info@dashboard.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-clock text-primary me-3 mt-1"></i>
+                        <div>
+                            <h6 class="mb-1">Çalışma Saatleri</h6>
+                            <p class="text-muted mb-0">
+                                Pazartesi - Cuma: 09:00 - 18:00<br>
+                                Cumartesi: 09:00 - 13:00<br>
+                                Pazar: Kapalı
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Types -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-headset me-2"></i>Destek Türleri
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Acil Destek</h6>
+                            <small class="text-muted">Kritik sistem sorunları için</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Teknik Destek</h6>
+                            <small class="text-muted">Sistem kullanımı ve hatalar</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Özellik Talebi</h6>
+                            <small class="text-muted">Yeni özellik önerileri</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Eğitim</h6>
+                            <small class="text-muted">Sistem kullanım eğitimi</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Link -->
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-question-circle me-2"></i>Sık Sorulan Sorular
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-3">
+                        Sorunuzun cevabı belki de SSS bölümünde mevcut.
+                    </p>
+                    <div class="d-grid">
+                        <a href="#" class="btn btn-outline-primary btn-sm" onclick="showComingSoon()">
+                            <i class="fas fa-external-link-alt me-1"></i>
+                            SSS Sayfası
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Contact form submission
+        $('#contact-form').on('submit', function(e) {
+            e.preventDefault();
+
+            // Form validation
+            if (!this.checkValidity()) {
+                e.stopPropagation();
+                $(this).addClass('was-validated');
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                name: $('#contact-name').val(),
+                email: $('#contact-email').val(),
+                phone: $('#contact-phone').val(),
+                subject: $('#contact-subject').val(),
+                message: $('#contact-message').val()
+            };
+
+            // Show loading
+            const submitBtn = $(this).find('button[type="submit"]');
+            const originalText = submitBtn.html();
+            submitBtn.html('<i class="fas fa-spinner fa-spin me-1"></i>Gönderiliyor...').prop('disabled', true);
+
+            // Simulate form submission (in real app, this would be an API call)
+            setTimeout(function() {
+                showToast('Mesaj Gönderildi', 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.', 'success');
+                $('#contact-form')[0].reset();
+                $('#contact-form').removeClass('was-validated');
+
+                // Reset button
+                submitBtn.html(originalText).prop('disabled', false);
+            }, 2000);
+        });
+
+        // Form reset
+        $('#contact-form').on('reset', function() {
+            $(this).removeClass('was-validated');
+        });
+    });
+
+    function showComingSoon() {
+        showToast('Geliştirme Aşamasında', 'SSS sayfası şu anda geliştirme aşamasındadır.', 'info');
+    }
+</script>

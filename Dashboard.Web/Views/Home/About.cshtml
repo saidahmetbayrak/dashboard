@@ -1,0 +1,250 @@
+﻿@{
+    ViewData["Title"] = "Hakkında";
+}
+
+<div class="container mt-4">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-info-circle text-primary me-3" style="font-size: 2rem;"></i>
+                <div>
+                    <h1 class="h2 mb-0">Dashboard Analytics</h1>
+                    <p class="text-muted mb-0">Elasticsearch Tabanlı Sepet Analiz Sistemi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- About Section -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-project-diagram me-2"></i>Proje Hakkında
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="lead">
+                        Dashboard Analytics, e-ticaret sepet verilerinizi analiz etmek ve anlamlı içgörüler elde etmek
+                        için geliştirilmiş modern bir analiz platformudur.
+                    </p>
+
+                    <p>
+                        Bu sistem, <strong>Elasticsearch</strong> altyapısı kullanarak büyük veri setlerini hızlı bir şekilde
+                        işleyebilir ve gerçek zamanlı analizler sunabilir. Kullanıcı dostu arayüzü ile sepet davranışlarını,
+                        müşteri tercihlerini ve satış trendlerini görselleştirir.
+                    </p>
+
+                    <h6 class="mt-4 mb-3">Ana Özellikler</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-chart-line text-primary me-2"></i>
+                                    Gerçek zamanlı veri analizi
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-search text-primary me-2"></i>
+                                    Gelişmiş filtreleme seçenekleri
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-users text-primary me-2"></i>
+                                    Müşteri davranış analizi
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-shopping-cart text-primary me-2"></i>
+                                    Sepet performans metrikleri
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                    Coğrafi analiz (İl/İlçe bazında)
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-warehouse text-primary me-2"></i>
+                                    Depo bazlı raporlama
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-mobile-alt text-primary me-2"></i>
+                                    Responsive tasarım
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-download text-primary me-2"></i>
+                                    Veri dışa aktarma (Excel, PDF)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Details -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-cogs me-2"></i>Teknik Detaylar
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Backend Teknolojiler</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fab fa-microsoft text-primary me-2"></i>.NET Core 8.0</li>
+                                <li><i class="fas fa-database text-primary me-2"></i>Elasticsearch 8.x</li>
+                                <li><i class="fas fa-server text-primary me-2"></i>ASP.NET Core Web API</li>
+                                <li><i class="fas fa-plug text-primary me-2"></i>Elastic.Clients.Elasticsearch</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Frontend Teknolojiler</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fab fa-html5 text-primary me-2"></i>HTML5 & CSS3</li>
+                                <li><i class="fab fa-js-square text-primary me-2"></i>JavaScript (ES6+)</li>
+                                <li><i class="fab fa-bootstrap text-primary me-2"></i>Bootstrap 5</li>
+                                <li><i class="fas fa-chart-bar text-primary me-2"></i>Chart.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- System Info -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-info me-2"></i>Sistem Bilgileri
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td><strong>Versiyon:</strong></td>
+                                <td>1.0.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Son Güncelleme:</strong></td>
+                                <td>@DateTime.Now.ToString("dd.MM.yyyy")</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Framework:</strong></td>
+                                <td>.NET 8.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Veritabanı:</strong></td>
+                                <td>Elasticsearch</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-star me-2"></i>Öne Çıkan Özellikler
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Yüksek Performans</h6>
+                            <small class="text-muted">Milisaniyeler içinde veri analizi</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Güvenli Altyapı</h6>
+                            <small class="text-muted">Enterprise düzeyinde güvenlik</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Ölçeklenebilir</h6>
+                            <small class="text-muted">Büyüyen verilerle birlikte gelişir</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Görsel Analitik</h6>
+                            <small class="text-muted">Anlaşılır grafikler ve raporlar</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-link me-2"></i>Hızlı Bağlantılar
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-sm">
+                            <i class="fas fa-chart-line me-2"></i>Dashboard'a Git
+                        </a>
+                        <a asp-controller="Home" asp-action="Contact" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-envelope me-2"></i>İletişim
+                        </a>
+                        <a href="#" onclick="checkApiStatus()" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-heartbeat me-2"></i>Sistem Durumu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkApiStatus() {
+        showLoading(true);
+
+        $.get('/Home/ApiStatus')
+            .done(function(response) {
+                if (response.connected) {
+                    showToast('Sistem Durumu', 'Tüm sistemler normal çalışıyor.', 'success');
+                } else {
+                    showToast('Sistem Durumu', 'Bazı servislerde sorun var: ' + response.message, 'warning');
+                }
+            })
+            .fail(function() {
+                showToast('Sistem Durumu', 'Sistem durumu kontrol edilemedi.', 'error');
+            })
+            .always(function() {
+                showLoading(false);
+            });
+    }
+</script>

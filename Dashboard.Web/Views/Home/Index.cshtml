@@ -1,0 +1,342 @@
+﻿@model Dashboard.Web.Models.DashboardViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<!-- Error/Success Messages -->
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        @Model.ErrorMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        @Model.SuccessMessage
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<!-- Elasticsearch Connection Status -->
+@if (!Model.IsElasticsearchConnected)
+{
+    <div class="alert alert-warning" role="alert">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        <strong>Uyarı:</strong> Elasticsearch bağlantısı kurulamadı. Bazı özellikler çalışmayabilir.
+    </div>
+}
+
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+            <i class="fas fa-shopping-cart me-2"></i>
+            Sepet Analytics Dashboard
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportData('excel')">
+                    <i class="fas fa-file-excel me-1"></i>Excel
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exportData('pdf')">
+                    <i class="fas fa-file-pdf me-1"></i>PDF
+                </button>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary" onclick="refreshAllData()">
+                <i class="fas fa-sync-alt me-1"></i>Yenile
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Panel -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-filter me-2"></i>Filtreler
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <!-- Date Range -->
+                <div class="col-md-2">
+                    <label for="date-field" class="form-label">
+                        <i class="fas fa-calendar-alt me-1"></i>Tarih Aralığı
+                    </label>
+                    <select id="date-field" class="form-select">
+                        <option value="1">Son 1 Ay</option>
+                        <option value="3" selected>Son 3 Ay</option>
+                        <option value="6">Son 6 Ay</option>
+                        <option value="9">Son 9 Ay</option>
+                        <option value="12">Son 12 Ay</option>
+                    </select>
+                </div>
+
+                <!-- Customer Filters -->
+                <div class="col-md-2">
+                    <label for="musteri-no" class="form-label">
+                        <i class="fas fa-user me-1"></i>Müşteri No
+                    </label>
+                    <div class="autocomplete-wrapper">
+                        <input type="text" id="musteri-no" placeholder="Müşteri No..."
+                               class="form-control autocomplete">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="kullanici-kodu" class="form-label">
+                        <i class="fas fa-user-tag me-1"></i>Kullanıcı Kodu
+                    </label>
+                    <div class="autocomplete-wrapper">
+                        <input type="text" id="kullanici-kodu" placeholder="Kullanıcı Kodu..."
+                               class="form-control autocomplete">
+                    </div>
+                </div>
+
+                <!-- Product Filter -->
+                <div class="col-md-2">
+                    <label for="malzeme-no" class="form-label">
+                        <i class="fas fa-box me-1"></i>Malzeme No
+                    </label>
+                    <div class="autocomplete-wrapper">
+                        <input type="text" id="malzeme-no" placeholder="Malzeme No..."
+                               class="form-control autocomplete">
+                    </div>
+                </div>
+
+                <!-- Location Filters -->
+                <div class="col-md-2">
+                    <label for="il-filter" class="form-label">
+                        <i class="fas fa-map-marker-alt me-1"></i>İl
+                    </label>
+                    <select id="il-filter" class="form-select">
+                        <option value="">İl Seçiniz</option>
+                        @foreach (var province in Model.Provinces)
+                        {
+                            <option value="@province.Code">@province.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="ilce-filter" class="form-label">
+                        <i class="fas fa-map-pin me-1"></i>İlçe
+                    </label>
+                    <select id="ilce-filter" class="form-select" disabled>
+                        <option value="">İlçe Seçiniz</option>
+                    </select>
+                </div>
+
+                <!-- Depot Filter -->
+                <div class="col-md-2">
+                    <label for="sevkiyat-depo" class="form-label">
+                        <i class="fas fa-warehouse me-1"></i>Sevkiyat Depo
+                    </label>
+                    <select id="sevkiyat-depo" class="form-select">
+                        <option value="">Depo Seçiniz</option>
+                        @foreach (var depot in Model.DepotList)
+                        {
+                            <option value="@depot.Value">@depot.Text (@depot.Count)</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="col-12">
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" id="apply-filters">
+                            <i class="fas fa-search me-1"></i>Filtrele
+                        </button>
+                        <button class="btn btn-secondary" id="clear-filters">
+                            <i class="fas fa-times me-1"></i>Temizle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-chart-line me-2"></i>Analiz Grafikleri
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row g-4">
+                <!-- Daily Chart -->
+                <div class="col-xl-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Günlük Sepet Trendi</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="daily-cart-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Chart -->
+                <div class="col-xl-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Aylık Sepet Trendi</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="monthly-trend-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Products Chart -->
+                <div class="col-xl-12" id="top-products-chart-container">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">En Çok Sepete Eklenen Ürünler</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="top-products-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Customers Chart -->
+                <div class="col-xl-12" id="customer-analysis-chart-container">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">En Aktif Müşteriler</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="customer-analysis-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depot Distribution -->
+                <div class="col-xl-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Depo Bazlı Dağılım</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="depot-distribution-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Province Performance -->
+                <div class="col-xl-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">İl Bazında Performans</h6>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="il-bazinda-performans-chart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Table Panel -->
+    <div class="card mb-4 d-none" id="customer-table-panel">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-users me-2"></i>Müşteri Bilgileri
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <span id="customer-count" class="text-muted">Filtreleme bekleniyor...</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-primary" id="customer-prev" disabled>
+                        <i class="fas fa-chevron-left me-1"></i>Önceki
+                    </button>
+                    <span class="btn btn-sm btn-outline-secondary" id="customer-page-info">Sayfa 1</span>
+                    <button class="btn btn-sm btn-outline-primary" id="customer-next" disabled>
+                        Sonraki<i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id="customer-table">
+                    <thead class="table-dark">
+                        <!-- Table headers will be populated by JavaScript -->
+                    </thead>
+                    <tbody id="customer-table-body">
+                        <!-- Table data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Table Panel -->
+    <div class="card mb-4 d-none" id="cart-table-panel">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-table me-2"></i>Sepet Veri Tablosu
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <span id="cart-count" class="text-muted">Filtreleme bekleniyor...</span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-outline-primary" id="cart-prev" disabled>
+                        <i class="fas fa-chevron-left me-1"></i>Önceki
+                    </button>
+                    <span class="btn btn-sm btn-outline-secondary" id="cart-page-info">Sayfa 1</span>
+                    <button class="btn btn-sm btn-outline-primary" id="cart-next" disabled>
+                        Sonraki<i class="fas fa-chevron-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id="cart-table">
+                    <thead class="table-dark">
+                        <!-- Table headers will be populated by JavaScript -->
+                    </thead>
+                    <tbody id="cart-table-body">
+                        <!-- Table data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Customer Detail Modal -->
+<div class="modal fade" id="customer-popup" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customerModalLabel">
+                    <i class="fas fa-user me-2"></i>Müşteri Detay Bilgileri
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="popup-body">
+                <!-- Customer details will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dashboard/charts.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard/datatable.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard/filters.js" asp-append-version="true"></script>
+    <script src="~/js/dashboard/dashboard.js" asp-append-version="true"></script>
+}

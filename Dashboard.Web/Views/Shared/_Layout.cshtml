@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Dashboard Analytics</title>
+    <meta name="description" content="Elasticsearch tabanlı sepet analiz dashboard sistemi" />
+    <meta name="keywords" content="dashboard, analytics, elasticsearch, sepet, analiz" />
+    <meta name="author" content="Dashboard Analytics" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Chart.js ve Date Adapter - Sıralama önemli! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Moment.js ve Adapter (Chart.js 3.x ile uyumlu) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.1/chartjs-adapter-moment.min.js"></script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-shopping-cart me-2"></i>
+                    Dashboard Analytics
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-chart-line me-1"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">
+                                <i class="fas fa-info-circle me-1"></i>Hakkında
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">
+                                <i class="fas fa-envelope me-1"></i>İletişim
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- API Status Indicator -->
+                    <div class="navbar-nav">
+                        <div class="nav-item">
+                            <span class="nav-link" id="api-status">
+                                <i class="fas fa-circle text-secondary me-1"></i>
+                                <span id="api-status-text">Bağlantı kontrol ediliyor...</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main" class="main-content">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="text-muted">
+                        &copy; @DateTime.Now.Year - Dashboard Analytics
+                    </span>
+                </div>
+                <div class="col-md-6 text-end">
+                    <span class="text-muted">
+                        <i class="fas fa-database me-1"></i>
+                        Elasticsearch Powered
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay d-none">
+        <div class="loading-content">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Yükleniyor...</span>
+            </div>
+            <p class="mt-3">Veriler yükleniyor...</p>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="notification-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-info-circle text-primary me-2"></i>
+                <strong class="me-auto">Bildirim</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <!-- Toast message will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Anti-forgery token -->
+    @Html.AntiForgeryToken()
+    <script>
+        // Global CSRF token setup
+        window.csrfToken = $('input[name="__RequestVerificationToken"]').val();
+
+        // Setup AJAX defaults
+        $.ajaxSetup({
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', window.csrfToken);
+            }
+        });
+
+        // Chart.js Date Adapter Test ve Konfigürasyon
+        $(document).ready(function() {
+            // Date adapter test
+            if (typeof Chart !== 'undefined') {
+                console.log('Chart.js loaded:', Chart.version);
+
+                // Test date adapter
+                try {
+                    const testScale = Chart.registry.getScale('time');
+                    console.log('✅ Date adapter successfully loaded');
+                } catch (error) {
+                    console.warn('⚠️ Date adapter test failed:', error);
+                }
+            }
+
+            // API status check
+            checkApiStatus();
+            // Check every 30 seconds
+            setInterval(checkApiStatus, 30000);
+        });
+
+        function checkApiStatus() {
+            $.get('/Home/ApiStatus')
+                .done(function(response) {
+                    updateApiStatusIndicator(response.connected, response.message);
+                })
+                .fail(function() {
+                    updateApiStatusIndicator(false, 'API bağlantısı kontrol edilemedi');
+                });
+        }
+
+        function updateApiStatusIndicator(connected, message) {
+            const statusIcon = $('#api-status i');
+            const statusText = $('#api-status-text');
+
+            if (connected) {
+                statusIcon.removeClass('text-secondary text-danger').addClass('text-success');
+                statusText.text('Bağlı');
+            } else {
+                statusIcon.removeClass('text-secondary text-success').addClass('text-danger');
+                statusText.text('Bağlantı Hatası');
+            }
+
+            $('#api-status').attr('title', message);
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

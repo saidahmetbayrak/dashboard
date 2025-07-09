@@ -1,0 +1,120 @@
+﻿@model Dashboard.Web.Models.ErrorViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        @Model.Title
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-exclamation-triangle text-danger" style="font-size: 4rem;"></i>
+                    </div>
+
+                    <h5 class="text-center mb-3">
+                        @if (Model.StatusCode == 404)
+                        {
+                            <span>Aradığınız sayfa bulunamadı</span>
+                        }
+                        else
+                        {
+                            <span>Beklenmeyen bir hata oluştu</span>
+                        }
+                    </h5>
+
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-warning">
+                            <strong>Hata Detayı:</strong> @Model.ErrorMessage
+                        </div>
+                    }
+
+                    <div class="text-center">
+                        <p class="text-muted mb-4">
+                            @if (Model.StatusCode == 404)
+                            {
+                                <span>Sayfa taşınmış, silinmiş veya geçici olarak kullanılamıyor olabilir.</span>
+                            }
+                            else
+                            {
+                                <span>Sistem yöneticilerimiz bu sorundan haberdar edilmiştir.</span>
+                            }
+                        </p>
+
+                        <div class="d-flex justify-content-center gap-3">
+                            <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                                <i class="fas fa-home me-1"></i>Ana Sayfaya Dön
+                            </a>
+
+                            <button onclick="history.back()" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Geri Git
+                            </button>
+
+                            <button onclick="location.reload()" class="btn btn-outline-primary">
+                                <i class="fas fa-sync-alt me-1"></i>Sayfayı Yenile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.ShowRequestId)
+                {
+                    <div class="card-footer bg-light">
+                        <small class="text-muted">
+                            <strong>İstek ID:</strong> @Model.RequestId
+                            <br>
+                            <strong>Zaman:</strong> @DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")
+                        </small>
+                    </div>
+                }
+            </div>
+
+            <!-- Help Section -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6 class="card-title mb-0">
+                        <i class="fas fa-question-circle me-2"></i>Yardıma mı ihtiyacınız var?
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Sık Kullanılan Bağlantılar</h6>
+                            <ul class="list-unstyled">
+                                <li><a asp-controller="Home" asp-action="Index"><i class="fas fa-chart-line me-1"></i>Dashboard</a></li>
+                                <li><a asp-controller="Home" asp-action="About"><i class="fas fa-info-circle me-1"></i>Hakkında</a></li>
+                                <li><a asp-controller="Home" asp-action="Contact"><i class="fas fa-envelope me-1"></i>İletişim</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Teknik Destek</h6>
+                            <p class="text-muted">
+                                Sorun devam ederse, lütfen sistem yöneticisi ile iletişime geçin.
+                            </p>
+                            <p class="text-muted">
+                                <i class="fas fa-envelope me-1"></i>
+                                <a href="mailto:support@dashboard.com">support@dashboard.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Log error to console for debugging
+    console.error('Error page displayed:', {
+        statusCode: @Model.StatusCode,
+        message: '@Model.ErrorMessage',
+        requestId: '@Model.RequestId'
+    });
+</script>
